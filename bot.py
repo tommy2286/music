@@ -4,6 +4,7 @@ import random
 import os
 import asyncio
 import discord
+from discord import opus
 from discord.ext import commands
 from discord import Member
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
