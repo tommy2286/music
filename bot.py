@@ -6,13 +6,32 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord import Member
+OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll',
+             'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+players = {}
 
-Opusfile: "libopus-0x86.dll"
+def load_opus_lib(opus_libs=OPUS_LIBS):
+    if opus.is_loaded():
+        return True
 
-if not discord.Opusfile.is_loaded():
-    discord.Opusfile.load_opus('libopus-0x86.dll')
+    for opus_lib in opus_libs:
+            try:
+                opus.load_opus(opus_lib)
+                return
+            except OSError:
+                pass
 
-import discord
+    raise RuntimeError('Could not load an opus lib. Tried %s' %
+                       (', '.join(opus_libs)))
+opts = {
+    'default_search': 'auto',
+    'quiet': True,
+}  # youtube_dl options
+
+
+
+load_opus_lib()
+
 
 client = discord.Client()
 
