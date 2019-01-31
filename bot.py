@@ -6,6 +6,7 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord import Member
+import opus
 
 if not discord.opus.is_loaded():
     discord.opus.load_opus('opus')
