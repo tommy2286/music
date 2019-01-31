@@ -9,8 +9,8 @@ from discord import Member
 
 Opusfile: "libopus-0x86.dll"
 
-if not discord.opus.is_loaded():
-    discord.opus.load_opus('opus')
+if not discord.Opusfile.is_loaded():
+    discord.Opusfile.load_opus('libopus-0x86.dll')
 
 import discord
 
