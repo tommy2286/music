@@ -6,7 +6,7 @@ import asyncio
 import discord
 from discord.ext import commands
 from discord import Member
-import opus
+
 Opusfile: "libopus-0x86.dll"
 
 if not discord.opus.is_loaded():
