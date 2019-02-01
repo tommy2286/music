@@ -252,7 +252,7 @@ async def leave(con):
 
     # COMMAND NOT IN DM
     if con.message.channel.is_private == False:
-        await bot.send_message(con.message.channel, "**Successfully Leaved the voice channel**")
+        
         # IF VOICE IS NOT CONNECTED
         if bot.is_voice_connected(con.message.server) == False:
             await bot.send_message(con.message.channel, "**Bot is not connected to a voice channel**")
@@ -260,6 +260,7 @@ async def leave(con):
         # VOICE ALREADY CONNECTED
         if bot.is_voice_connected(con.message.server) == True:
             bot.loop.create_task(queue_songs(con, False, True))
+            await bot.send_message(con.message.channel, "**Successfully Leaved the voice channel**")
 
 @bot.command(pass_context=True)
 async def pause(con):
