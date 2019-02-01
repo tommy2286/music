@@ -14,6 +14,13 @@ def get_prefix(bot, msg):
 
     me=['nep.','k.','saki.','a.','s.']
     
+    if msg.author.id == '475339268458414090':
+        return commands.when_mentioned_or(*me)(bot, msg)
+
+
+    return commands.when_mentioned_or(*prefixes)(bot, msg)
+
+    
 
 bot = commands.Bot(command_prefix=get_prefix,description='A music bot fro discord Kurusaki')
 
