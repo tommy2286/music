@@ -232,6 +232,7 @@ async def join(con,*,channel=None):
 
         if voice_status == False and channel != None:  # PICKING A VOICE CHANNEL
             await bot.join_voice_channel(voice)
+            await bot.send_message(con.message.channel, "**Successfully connected to voice channel**")
 
         if voice_status == True:  # VOICE ALREADY CONNECTED
             if voice == None:
